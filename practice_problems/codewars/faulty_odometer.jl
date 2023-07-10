@@ -11,7 +11,7 @@ e.g.
     fours_missing(55, 1) -> 9 gives how many 'tens fours' are skipped up to 55 [9 are skipped as 44 was already skipped by units]
 """
 function fours_missing(z::Integer, n::Integer)::Integer
-    9^n * (z + 5*10^n)÷(10^(n+1))
+    9^n * ((z + 5*10^n) ÷ 10^(n+1))
     # 9^n gives how many are skipped in each 'run' and then this is multiplied by how many runs of the four order there are
 end
 
@@ -32,4 +32,10 @@ function corrected_odometer(distance::Integer)::Integer
     end
     return corrected_distance
 end
-    
+
+
+function corrected_odometer_base9(distance::Integer)::Integer
+    # since we are consistently skipping one digit, we are effectively counting in base 9 rather than 10, hence
+    parse(Int, join([d>4 ? d-1 : d for d in reverse(digits(distance))]), base=9)
+    # split the number into an array (digits() gives the digits smallest to largest so needs to be reversed), shift down digits bigger than 4 by 1 to correct for our skip and then parse the number in base 9
+end
