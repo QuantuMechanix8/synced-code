@@ -1,6 +1,7 @@
 import Distributions
 import Dates
 
+
 """
 `function rand_adult_birthday_normal()::Dates.Date`
 
