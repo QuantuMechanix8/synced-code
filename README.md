@@ -1,4 +1,4 @@
-# synced_code repository
+# synced-code repository
 
 Welcome to my synced code repository, used as a place to store code so that I can access it from different computers and synchronise changes (google drive didn't cut it lol so I decided to use this instead)
 
