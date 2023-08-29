@@ -1,0 +1,23 @@
+:set number
+:set autoindent
+:set linebreak
+:set background=dark
+syntax on
+set tabstop=4
+set relativenumber
+:filetype on
+
+call plug#begin()
+
+Plug 'JuliaEditorSupport/julia-vim' "adds julia support to vim
+Plug 'ghifarit53/tokyonight-vim'
+
+call plug#end()
+set termguicolors
+
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+
+colorscheme tokyonight
+
+set display+=lastline
