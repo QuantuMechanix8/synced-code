@@ -67,7 +67,7 @@ unset color_prompt force_color_prompt
 case "$TERM" in
 xterm*|rxvt*)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
+   ;;
 *)
     ;;
 esac
@@ -87,10 +87,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -120,4 +116,22 @@ if [ -f /home/saulivor/.config/synth-shell/synth-shell-prompt.sh ] && [ -n "$( e
 	source /home/saulivor/.config/synth-shell/synth-shell-prompt.sh
 fi
 
-neofetch --ascii_distro penguin --underline_char === --memory_percent on --disable cpu de theme icons 
+
+##-----------------------------------------------------
+
+##-----------------------------------------------------
+## alias
+if [ -f /home/saulivor/.config/synth-shell/alias.sh ] && [ -n "$( echo $- | grep i )" ]; then
+	source /home/saulivor/.config/synth-shell/alias.sh
+fi
+
+##-----------------------------------------------------
+## better-history
+if [ -f /home/saulivor/.config/synth-shell/better-history.sh ] && [ -n "$( echo $- | grep i )" ]; then
+	source /home/saulivor/.config/synth-shell/better-history.sh
+fi
+
+figlet -f lean "SaulIvor"
+neofetch --underline_char === --memory_percent on --disable cpu de theme icons 
+
+alias lf='ls -X -F'
