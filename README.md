@@ -2,7 +2,7 @@
 
 Welcome to my synced code repository, used as a place to store personal files so that I can access it from different computers and synchronise changes (google drive didn't cut it lol so I decided to use this instead)
 	
-(for any university code/projects see [my UoM GitLab Page](https://gitlab.cs.man.ac.uk/n23551sf))
+> (for any university code/projects see [my UoM GitLab Page](https://gitlab.cs.man.ac.uk/n23551sf))
 ---
 
 At the time of writing I barely know what I'm doing with git/github but look forward to using this alot once I have more experience and am comfortable using this, will try to maintain very good habits, i.e:
