@@ -131,6 +131,6 @@ if [ -f /home/saulivor/.config/synth-shell/better-history.sh ] && [ -n "$( echo 
 	source /home/saulivor/.config/synth-shell/better-history.sh
 fi
 
-neofetch --ascii_distro penguin --underline_char === --memory_percent on --disable cpu de theme icons 
+neofetch --ascii_distro penguin --underline_char === --memory_percent on --disable cpu de theme icons Z 
 
 alias lf='ls -X -F'
