@@ -1,3 +1,4 @@
 # text document explicity specifying all files (and more generally, filetypes, folders etc) for git to ignore in its commits
 
 __pycache__/
+.vscode/
