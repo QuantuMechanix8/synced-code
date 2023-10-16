@@ -66,8 +66,6 @@ def get_subsquares(sudoku_grid):
 
 
 """Return an array of the subsquare within grid 'starting' (top-left) at i,j"""
-
-
 def get_subsquare(sudoku_grid, initial_row, initial_column):
     subsquare_side_length = int(math.sqrt(len(sudoku_grid[0])))
     subsquare = []
@@ -79,6 +77,13 @@ def get_subsquare(sudoku_grid, initial_row, initial_column):
             subsquare.append(sudoku_grid[row][column])
 
     return subsquare
+
+
+"""Return an array of bools to delineate whether the number can be put in that subarray
+
+i.e. possible_places([[0,1], [0, 0], [2,1], [2,0]], 1) => [F, T, F, T]"""
+def possible_subarrays(subarrays, i):
+    return [any(item==i for item in subarray) for subarray in subarrays]
 
 
 """Prints nicely formatted matrix with equal spacing"""
