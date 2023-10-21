@@ -1,0 +1,11 @@
+# Github (personal repos)
+Host github.com
+		HostName github.com
+		User git
+		IdentityFile ~/.ssh/id_rsa
+		IdentitiesOnly yes
+
+# GitLab (uni-repos)
+Host gitlab.cs.man.ac.uk 
+		PreferredAuthentications publickey
+		IdentityFile ~/.ssh/uni-keys/id_rsa
