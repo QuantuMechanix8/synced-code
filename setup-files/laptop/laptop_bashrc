@@ -134,3 +134,4 @@ fi
 neofetch --ascii_distro penguin --underline_char === --memory_percent on --disable cpu de theme icons Z 
 
 alias lf='ls -X -F'
+alias lg="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
