@@ -26,3 +26,9 @@ function divisible(potential_factors, n)
 	end
 	return false 
 end
+
+
+function is_prime(n::Integer)::Bool
+	potential_factors = primes_up_to(floor(Int, sqrt(n)))
+	return !divisible(potential_factors, n)
+end
