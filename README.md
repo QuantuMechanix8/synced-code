@@ -14,4 +14,4 @@ At the time of writing I barely know what I'm doing with git/github but look for
 3. Docmented, clean, idiomatic code
 4. Tests within the code (or `doctests` in `julia` once I figure that out) 
 
-_full list of coding rules can be found within the_ ***styleguide*** _in Notion_
+_full list of coding rules can be found within the_ ***Coding Styleguide*** _in my Notion_
