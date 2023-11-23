@@ -9,7 +9,7 @@ function divisors(n::Integer)::Vector{Integer} # vector used rather than set for
     for i ∈ 1:floor(Int, sqrt(n))
         if n % i == 0
             push!(divisors, i)
-            if i != n/i
+            if i != n/i # if i is not the square root of n then n/i is also a divisor
                 push!(divisors, n/i)
             end
         end
@@ -42,3 +42,5 @@ function list_squared(m::Integer, n::Integer)::Vector{Vector{Integer}}
     end
     return result
 end
+
+divisors(120)
