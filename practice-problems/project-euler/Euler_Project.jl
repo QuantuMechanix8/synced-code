@@ -510,6 +510,72 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
 =#
 
 
+"""convert a number below 1,000 into its english representation"""
+function english_hundreds(number::Integer)
+    if number > 1000
+        println("Number too large!")
+        return
+    elseif number == 0
+        return [""]
+    end
+    ones_words = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+    teens_words = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
+    tens_words = ["ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+    
+    number_words = []
+    hundreds = number ÷ 100 % 10
+    tens = number ÷ 10 % 10
+    ones = number % 10
+    if hundreds >= 1
+        append!(number_words, [ones_words[hundreds], "hundred"])
+        if tens >= 1 || ones >= 1
+            push!(number_words, "and")
+        end
+    end
+    if tens >= 2
+        push!(number_words, tens_words[tens])
+    end
+    if tens == 1
+        push!(number_words, teens_words[ones + 1]) # add 1 as 
+    elseif ones >= 1
+        push!(number_words, ones_words[ones])
+    end
+    return number_words
+end
+
+
+"""function to convert any integer n∈() into its english word representation"""
+function english_words(number::Integer)
+    negative = number < 0
+    if negative
+        number = -number
+    end
+
+    suffixes = ["m", "b", "tr", "quadr", "quint", "sext", "sept", "oct", "non", "dec", "undec", "duodec", "tredec", "quattorodec", "quindec", "sexdec", "septdec", "octodec", "nondec", "vigint"]
+    suffixes = map(x->x*"illion", suffixes)
+    prepend!(suffixes, ["", "thousand"]) # first two suffixes (none & thousands)
+    #print(suffixes)
+    groupings = floor(Integer, log(1000, number)) + 1 # number of 3 digit groups
+    groupings = max(groupings, 1) # case that number ∈ [0,1] 
+
+    number_words = []
+    for i in 1:groupings
+        triplet = number % 1000
+        number ÷= 1000
+        if triplet == 0
+            continue
+        end
+        triplet = english_hundreds(triplet)
+        pushfirst!(number_words, suffixes[i]*",")
+        prepend!(number_words, triplet)
+    end
+    if negative
+        pushfirst!(number_words, "negative")
+    end
+    return join(number_words, " ")[1:end-1] # removes final comma
+end #Mostly works but will yeild "one thousand, five" - TODO implement "and" when hundreds not present
+
+
 function digit_sum(number)
     num_str = string(number)
     total = 0

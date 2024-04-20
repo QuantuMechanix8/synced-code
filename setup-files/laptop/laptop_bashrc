@@ -133,5 +133,20 @@ fi
 
 neofetch --ascii_distro penguin --underline_char === --memory_percent on --disable cpu de theme icons Z 
 
-alias lf='ls -X -F'
-alias lg="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias lf='ls -X -v -F --group-directories-first'
+#alias lg="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias git_lg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+case ":$PATH:" in
+    *:/home/saulivor/.juliaup/bin:*)
+        ;;
+
+    *)
+        export PATH=/home/saulivor/.juliaup/bin${PATH:+:${PATH}}
+        ;;
+esac
+
+# <<< juliaup initialize <<<
