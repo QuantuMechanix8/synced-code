@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt]{article}
-\usepackage[left=2.5cm, right=2.5cm, top=1.2cm, bottom=0cm]{geometry}
+\usepackage[left=2.5cm, right=2.5cm, top=1cm, bottom=0cm]{geometry}
 \usepackage{amsmath}
 %\usepackage[none]{hyphenat}
 \usepackage{setspace}
@@ -15,8 +15,8 @@
 
 \titleformat{\section}{\large\bfseries\color{verdeolivo}}{}{0em}{}[\titlerule]
 
-\titleformat{\subsection}[runin]{\bfseries\color{verdeolivo}}{}{0em}{}[]
-\titlespacing*{\subsection}{0em}{1em}{1ex} % controls spacing between subsections
+\titleformat{\subsection}[runin]{\bfseries\color{verdeolivo}}{}{}{}[\vspace{0.4ex} \\]
+\titlespacing{\subsection}{0pt}{2ex}{}[] % controls spacing between subsections
 
 \setlist{leftmargin=1em}
 \begin{document}
@@ -27,32 +27,36 @@
 \begin{center}
     \textbf{\Huge Saul Fileen-Orchover} \\
     \vspace{1mm}
-    \faIcon{id-card} Computer Scientist \& Mathematician
+    \faIcon{id-card} CS \& Math First-Year --- graduating Jul 2026
 \end{center}
 
 \begin{center}
-    \faIcon{phone} \href{https://wa.me/1234567890}{07980533931} \hspace{2cm}
-    \faIcon{envelope} \href{mailto:saulivorfo@gmail.com}{saulivorfo@gmail.com} \hspace{2cm}
-    \faIcon{linkedin} \href{https://www.linkedin.com/in/saul-ivor-4305872a0/}{saul ivor}
+    \hspace{1ex}
+    \faIcon{phone} \href{https://wa.me/1234567890}{07980533931} \hfill
+    \faIcon{envelope} \href{mailto:saulivorfo@gmail.com}{saulivorfo@gmail.com} \hfill
+    \faIcon{linkedin} \href{https://www.linkedin.com/in/saul-fileen-orchover-4305872a0}{Saul Fileen-Orchover} \hfill
+    \faIcon{github} \href{https://github.com/QuantuMechanix8}{QuantuMechanix8} 
+    \hspace{1ex} \hfill
 \end{center}
 
 \vspace{-3mm}
 
 \section*{\faIcon{graduation-cap} Education}
 
-\subsection*{University of Manchester \hfill In progress}
-\textit{BSc Computer Science \& Mathematics}\\
+\subsection*{University of Manchester \hfill 
+{\color{black}\textit{\textmd{BSc Computer Science \& Mathematics}}}\hspace{1ex} In progress}
 $80^+\%$ average grade across First Year exams
 
-\subsection*{Dame Alice Owen's School \hfill Sep 2020 - Jun 2022}
-\textit{A-Level}\\
+\subsection*{Dame Alice Owen's School \hfill
+{\color{black}\textit{\textmd{A-Levels}}}\hspace{1ex} Sep 2020 - Jun 2022}
+
 Maths - $A^*$, 
 Further Maths - $A^*$, 
 Computer Science - $A^*$, 
 Physics - $A^*$
 
-\subsection*{Jewish Free School \hfill Sep 2015 - Jun 2020}
-\textit{GCSE}\\
+\subsection*{Jewish Free School \hfill 
+{\color{black}\textit{\textmd{GCSEs}}}\hspace{1ex} Sep 2015 - Jun 2020}
 \begin{tabular}{@{} l l l}
     Maths \& Further Maths - 9 & Triple Science - 9 & Computer Science - 9\\
     English Lit \& Lang - 9 & Astronomy - 9 & Music - 9
@@ -66,55 +70,62 @@ Physics - $A^*$
 % Projects Section
 \section*{\faIcon{code-branch} Projects}
 
-\subsection*{Lost \& Found web app \hfill Oct 2023 - Apr 2024}
-\textit{Full-Stack}
+\subsection*{Lost \& Found web app \hfill 
+{\color{black}\textit{\textmd{Full-Stack}}}\hspace{1ex} Oct 2023 - Apr 2024}
 \begin{itemize}
-\vspace{-2mm}
+\vspace{-1.7em}
 \setlength\itemsep{-0.7ex}
-    \item Led development of a travel web application using LAMP stack, Google Maps API, and threeJS.
-    \item Developed secure authentication with modern hashing \& salting, and PHP session/cookie management.
+    \item Led group development of a travel web application using LAMP stack, Google Maps API, and threeJS.
+    \item Implemented relational database to dynamically store and fetch user-created data, also developed secure authentication with modern hashing \& salting, and PHP session/cookie management.
     \item Integrated real-world data to build a realistic, interactive Earth, personally designed front-end graphics (logo, icons \& styling) and utilized third-party libraries such as marker clusterer \& fontawesome.
 \end{itemize}
  
-\subsection*{Spam Email Detector \hfill Apr 2024 - May 2024}
-\textit{Python} \\
+\subsection*{Spam Email Detector \hfill
+{\color{black}\textit{\textmd{Python}}}\hspace{1ex} Apr 2024 - May 2024}
 Spam categorization program using Naïve Bayes optimal classifier (with \texttt{Jupyter, Pandas \& NumPy})
 
-\subsection*{Tipping Point \hfill Nov 2023 - Dec 2023}
-\textit{Python} \\
+\subsection*{Tipping Point \hfill
+{\color{black}\textit{\textmd{Python}}}\hspace{1ex} Nov 2023 - Dec 2023}
 Inverted-pendulum balance game with accurate physics and collision detection (with \texttt{TKinter})
 
-\subsection*{Text Compression Visualizer \hfill Feb 2022 - May 2022}
-\textit{Python} \\
+\subsection*{Text Compression Visualizer \hfill
+{\color{black}\textit{\textmd{Python}}}\hspace{1ex} Feb 2022 - May 2022}
 Dynamic animation of LZ77, BytePair/Huffman Encoding \& RLE compression algorithms (with \texttt{Pygame})
 
-\subsection*{Project Euler \hfill Ongoing}
-\textit{Python \& Julia} \\
+\subsection*{Project Euler \hfill
+{\color{black}\textit{\textmd{Python \& Julia}}}\hspace{1ex} Ongoing}
 Solving over 20 of the prestigious Project-Euler mathematical coding problems in both \texttt{Python} \& \texttt{Julia}
 
 \section*{\faIcon{code} Technical Skills}
 \begin{center}
     \begin{itemize}[label=\faIcon{check}, leftmargin=1.5em]
+        \setlength\itemsep{-0.2ex}
         \item Strong fundamentals in \texttt{Python, HTML, CSS, JavaScript, PHP, Java, Julia \& SQL} languages.
         \item Comfortable using \texttt{Git}, \texttt{GNU/Linux}, Package Managers, Virtual Environments (\texttt{conda}) \& $\LaTeX$
-        \item Familiarity with range of other technologies like \texttt{MATLAB}, \texttt{BASH}, \texttt{RegEx}, \texttt{VIM}, virtual machines \& more
-        \item Solid mathematical foundation in pure and applied fields for efficient problem-solving
+        \item Familiarity with range of other technologies like \texttt{MATLAB}, \texttt{BASH}, \texttt{RegEx}, \texttt{VIM}, various OSes \& more
+        \item Solid mathematical foundation in pure and applied fields for efficient, complex problem-solving
         \item Fast touch-typist ($70^+$ WPM), and experience with the majority of MS/Google Office softwares
     \end{itemize}
 \end{center}
 
 \section*{\faIcon{briefcase} Experience}
-\subsection*{Mathnasium \hfill Oct 2022 - Mar 2023} \textit{James Land (Manager) - $07943854225$}\\
-Full-time in-person maths tutor for students aged $6$ to $16$, also responsible for assessments, interacting with parents \& managing/updating their digital system
 
-\subsection*{SoraTutoring \hfill Dec 2023 - May 2024} \textit{Ebenezer Egunlae (Owner) - $07743866816$}\\
+\subsection*{SoraTutoring \hfill 
+{\color{black}\textit{\textmd{Ebenezer Egunlae (Owner) - $07743866816$}}}\hspace{1ex} Dec 2023 - May 2024} 
 Online tutoring of maths and physics at a reduced rate for underprivileged youth
 
-\subsection*{A-Level \& GCSE Tutoring  \hfill Dec 2021 - Ongoing} \textit{Self-employed}\\
+\subsection*{Mathnasium \hfill 
+{\color{black}\textit{\textmd{James Land (Manager) - $07943854225$}}}\hspace{1ex} Oct 2022 - Mar 2023}
+Full-time in-person maths tutor for students aged $6$ to $16$, also responsible for assessments, interacting with parents \& managing/updating their digital system
+
+\subsection*{A-Level \& GCSE Tutoring  \hfill
+{\color{black}\textit{\textmd{Self-Employed}}}\hspace{1ex} Dec 2021 - Ongoing}
 Over $2$ years experience teaching multiple students, even leading a student to achieve a grade $8$ at GCSE
 
-\subsection*{Summer Camp \hfill Jul - Aug 2021 \& 2022} \textit{Katie Felstein (Director) - katie@habodror.org.uk}\\
+\subsection*{Summer Camp \hfill 
+{\color{black}\textit{\textmd{Katie Felstein (Director) - katie@habodror.org.uk}}}\hspace{1ex} Jul - Aug 2021 \& 2022}
 Led as volunteer on holocaust-focused Jewish summer camp $(2022)$, devised and delivered creative lessons on history, persecution \& genocide, alongside teaching about wider social issues $(2021)$.\\
 Held legal responsibility for handling welfare, medication, eating, discipline, sexism and other issues
 
 \end{document}
+
