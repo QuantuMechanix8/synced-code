@@ -131,10 +131,10 @@ if [ -f /home/saulivor/.config/synth-shell/better-history.sh ] && [ -n "$( echo 
 	source /home/saulivor/.config/synth-shell/better-history.sh
 fi
 
-figlet -f lean "SaulIvor"
-neofetch --underline_char === --memory_percent on --disable cpu de theme icons 
+figlet -f smslant "SaulIvor"
+neofetch --ascii_distro ubuntu_old --underline_char === --memory_percent on --disable --kernel_shorthand on --shell_path on --block_width 4 --colors 105 69 8 10 10 2
 
-alias lf='ls -X -v -F --group-directories-first'
+alias lf='lsd --group-directories-first --sort=version -X -h'
 
 # for a better git log - git lg
 alias lg="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
@@ -173,3 +173,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# autoenv
+export AUTOENV_ENABLE_LEAVE='y'
+export AUTOENV_ASSUME_YES='y'
+source '/home/saulivor/.nvm/versions/node/v16.15.1/lib/node_modules/@hyperupcall/autoenv/activate.sh'

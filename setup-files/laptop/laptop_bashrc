@@ -134,7 +134,6 @@ fi
 neofetch --ascii_distro penguin --underline_char === --memory_percent on --disable cpu de theme icons gpu --kernel_shorthand on --shell_path on --block_width 4 --colors 105 69 8 10 10 2 | awk NF
 
 alias lf='lsd --group-directories-first --sort=version -X'
-#alias lg="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias git_lg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 # >>> juliaup initialize >>>
 
@@ -165,6 +164,8 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# autoenv
 export AUTOENV_ASSUME_YES='y'
 export AUTOENV_ENABLE_LEAVE='y'
 source ~/.autoenv/activate.sh
