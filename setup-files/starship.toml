@@ -1,5 +1,5 @@
 "$schema" = 'https://starship.rs/config-schema.json'
-
+#
 format = """
 $STARSHIP_CHAR_SYMBOL 
 $os\
@@ -82,19 +82,19 @@ style = "bg:color_green"
 format = '[[ $symbol $branch ](fg:color_fg0 bg:color_green)]($style)'
 
 [git_status]
-conflicted = '[{count} ](fg:red bg:color_green)'
-ahead = '[⇡${count} ](fg:yellow bg:color_green)'
-behind = '[⇣${count} ](fg:yellow bg:color_green)'
-diverged = '[⇕${ahead_count}⇡${behind_count}⇣ ](fg:yellow bg:color_green)' # ⇕ ↕ ⇳ 󰹹 󰹺 󰧈 
+conflicted = '[ ${count} ](fg:red bg:color_green)'
+ahead = '[⇡${count} ](fg:blue bg:color_green)'
+behind = '[⇣${count} ](fg:blue bg:color_green)'
+diverged = '[⇕${ahead_count}⇡${behind_count}⇣ ](fg:blue bg:color_green)' # ⇕ ↕ ⇳ 󰹹 󰹺 󰧈 
 up_to_date = '[](fg:green bg:color_green)'
-untracked = '[󰦀${count} ](fg:red bg:color_green)' # ' ' # '? '
+untracked = '[󰦀 ${count} ](fg:red bg:color_green)' # ' ' # '? '
 stashed = '[ ](fg:blue bg:color_green)' # '📦 '# ' ' # ' ' # ' ' # ' ' 
-modified = '[󰷉${count} ](fg:#C8AC00 bg:color_green)' # '📝' # '! ' #  #  # 
+modified = '[ ${count} ](fg:color_yellow bg:color_green)' # '📝' # '! ' #  #  # 
 staged = '[+${count} ](fg:blue bg:color_green)' # '+ '
-renamed = '[»${count} ](fg:yellow bg:color_green)' # ' ' # '﫦' # ᴂ #  #  #  # ﳳ
-deleted = '[${count} ](fg:orange bg:color_green)' # '🗑 ' '- '
+renamed = '[»${count} ](fg:color_yellow bg:color_green)' # ' ' # '﫦' # ᴂ #  #  #  # ﳳ
+deleted = '[ ${count} ](fg:color_yellow bg:color_green)' # '🗑 ' '- '
 style = "bg:color_green"
-format = '[[($all_status$ahead_behind )](bg:color_green)]($style)'
+format = '[[($all_status$ahead_behind)](bg:color_green)]($style)'
 
 [git_metrics]
 disabled = true 

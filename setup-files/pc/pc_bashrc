@@ -108,37 +108,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-
-##-----------------------------------------------------
-## synth-shell-prompt.sh
-if [ -f /home/saulivor/.config/synth-shell/synth-shell-prompt.sh ] && [ -n "$( echo $- | grep i )" ]; then
-	source /home/saulivor/.config/synth-shell/synth-shell-prompt.sh
-fi
-
-
-##-----------------------------------------------------
-
-##-----------------------------------------------------
-## alias
-if [ -f /home/saulivor/.config/synth-shell/alias.sh ] && [ -n "$( echo $- | grep i )" ]; then
-	source /home/saulivor/.config/synth-shell/alias.sh
-fi
-
-##-----------------------------------------------------
-## better-history
-if [ -f /home/saulivor/.config/synth-shell/better-history.sh ] && [ -n "$( echo $- | grep i )" ]; then
-	source /home/saulivor/.config/synth-shell/better-history.sh
-fi
-
+# personal
 figlet -f smslant "SaulIvor"
 neofetch --ascii_distro ubuntu_old --underline_char === --memory_percent on --disable --kernel_shorthand on --shell_path on --block_width 4 --colors 105 69 8 10 10 2
 
-alias lf='lsd --group-directories-first --sort=version -X -h'
+alias lf='lsd --group-directories-first --versionsort'
 
 # for a better git log - git lg
 alias lg="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias xampp="/opt/lampp/manager-linux-x64.run"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

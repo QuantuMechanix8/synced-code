@@ -108,33 +108,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-
-##-----------------------------------------------------
-## synth-shell-prompt.sh
-if [ -f /home/saulivor/.config/synth-shell/synth-shell-prompt.sh ] && [ -n "$( echo $- | grep i )" ]; then
-	source /home/saulivor/.config/synth-shell/synth-shell-prompt.sh
-fi
-
-
-##-----------------------------------------------------
-
-##-----------------------------------------------------
-## alias
-if [ -f /home/saulivor/.config/synth-shell/alias.sh ] && [ -n "$( echo $- | grep i )" ]; then
-	source /home/saulivor/.config/synth-shell/alias.sh
-fi
-
-##-----------------------------------------------------
-## better-history
-if [ -f /home/saulivor/.config/synth-shell/better-history.sh ] && [ -n "$( echo $- | grep i )" ]; then
-	source /home/saulivor/.config/synth-shell/better-history.sh
-fi
-
+# personal
 neofetch --ascii_distro penguin --underline_char === --memory_percent on --disable cpu de theme icons gpu --kernel_shorthand on --shell_path on --block_width 4 --colors 105 69 8 10 10 2 | awk NF
 
-alias lf='lsd --group-directories-first --sort=version -X'
+alias lf='lsd --group-directories-first --versionsort'
 alias git_lg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+
 # >>> juliaup initialize >>>
 
 # !! Contents within this block are managed by juliaup !!
@@ -169,3 +148,5 @@ unset __conda_setup
 export AUTOENV_ASSUME_YES='y'
 export AUTOENV_ENABLE_LEAVE='y'
 source ~/.autoenv/activate.sh
+
+eval "$(starship init bash)"
