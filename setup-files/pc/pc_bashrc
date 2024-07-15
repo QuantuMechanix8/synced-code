@@ -177,3 +177,5 @@ unset __conda_setup
 export AUTOENV_ENABLE_LEAVE='y'
 export AUTOENV_ASSUME_YES='y'
 source '/home/saulivor/.nvm/versions/node/v16.15.1/lib/node_modules/@hyperupcall/autoenv/activate.sh'
+
+eval "$(starship init bash)"
