@@ -149,4 +149,7 @@ export AUTOENV_ASSUME_YES='y'
 export AUTOENV_ENABLE_LEAVE='y'
 source ~/.autoenv/activate.sh
 
+# make the nerdfont available to the chromebook terminal
+(cd ~/.fonts; nohup python3 server.py > /dev/null 2> /dev/null & )
+
 eval "$(starship init bash)"
