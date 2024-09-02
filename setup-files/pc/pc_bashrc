@@ -109,8 +109,9 @@ if ! shopt -oq posix; then
 fi
 
 # personal
-figlet -f smslant "SaulIvor"
-neofetch --ascii_distro ubuntu_old --underline_char === --memory_percent on --disable --kernel_shorthand on --shell_path on --block_width 4 --colors 105 69 8 10 10 2
+figlet -f lean "SaulIvor"
+#neofetch --ascii_distro ubuntu_old --underline_char === --memory_percent on --disable --kernel_shorthand on --shell_path on --block_width 4 --colors 105 69 8 10 10 2
+fastfetch
 
 alias lf='lsd --group-directories-first --versionsort'
 
