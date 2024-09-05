@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    "logo": "ubuntu2_old",
+    "logo": "Linux",
     "display": {
         "size" : {
             "binaryPrefix": "jedec" //use decimal prefixes over binary ones i.e. TB instead of TiB
@@ -13,7 +13,7 @@
             "separator": "1" // Bold
         },
         "constants": [
-            "──────────────"
+            "───────────────────"
         ],
         "key": {
             "type": "both",
@@ -29,13 +29,17 @@
             "type": "title",
             "format": "┌{$1} {#1}{user-name-colored}{at-symbol-colored}{host-name-colored}{#} {$1}┐"
         },
-        "break",
+		"break",
         {
             "key": "OS       ",
             "keyColor": "blue",
             "type": "os"
         },
-        "host",
+		{
+				"key": "Host     ",
+				"keyColor": "blue",
+				"type": "host"
+		},
         //"bios",
         //"bootmgr",
         //"board",
@@ -53,31 +57,35 @@
         },
         //"loadavg",
         //"processes",
-        {
+        /*{
             "key": "Packages ",
             "keyColor": "cyan",
             "type": "packages"
         },
-        {
+		*/
+        /*{
             "key": "Shell    ",
             "keyColor": "yellow",
             "type": "shell"
         },
+		*/
         "editor",
         //"display",
-        "brightness",
+        //"brightness", //took 32ms to finish running (and fail) - much slower than other modules
         //"monitor",
         //"lm",
-        {
+        /*{
             "key": "DE       ",
             "keyColor": "yellow",
             "type": "de"
         },
-        {
+		*/
+        /*{
             "key": "WM       ",
             "keyColor": "yellow",
             "type": "wm"
         },
+		*/
         //"wmtheme",
         //"theme",
         //"icons",
@@ -98,30 +106,32 @@
             "key": "CPU      ",
             "keyColor": "green",
             "type": "cpu",
-            "format": "{1} @ {7} - {8}",
+            "format": "{1:42}", 
             "temp": true
             
         },
         //"cpucache",
         //"cpuusage",
-        {
+        /*{
             "key": "GPU      ",
             "keyColor": "green",
             "type": "gpu",
             "format": "{1} {2:18} - {4}",
             "temp": true
         },
+		*/
         {
             "key": "Memory   ",
             "keyColor": "magenta",
             "type": "memory"
         },
         "physicalmemory",
-        {
+        /*{
             "key": "Swap     ",
             "keyColor": "magenta",
             "type": "swap"
         },
+		*/
         {
             "key": "Disk     ",
             "keyColor": "white",
@@ -130,7 +140,11 @@
             // if theres a mount name show it in gray
             
         },
-        "battery",
+		{
+				"key":"Battery  ",
+				"keyColor": "white",
+				"type": "battery"
+		},
         "poweradapter",
         //"player",
         //"media",
@@ -175,7 +189,6 @@
         },
         */
         //"version",
-        "break",
         {
             "type": "colors",
             "paddingLeft": 0,

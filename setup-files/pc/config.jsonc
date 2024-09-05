@@ -1,0 +1,196 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": "ubuntu2_old",
+    "display": {
+        "size" : {
+            "binaryPrefix": "jedec" //use decimal prefixes over binary ones i.e. TB instead of TiB
+        },
+        "percent" : {
+            "type": 2
+        },
+        "separator": "->  ",
+        "color": {
+            "separator": "1" // Bold
+        },
+        "constants": [
+            "───────────────────────"
+        ],
+        "key": {
+            "type": "both",
+            "paddingLeft": 0
+        },
+        "temp": {
+            "unit": "C",
+            "ndigits": 1
+        }
+    },
+    "modules": [
+        {
+            "type": "title",
+            "format": "┌{$1} {#1}{user-name-colored}{at-symbol-colored}{host-name-colored}{#} {$1}┐"
+        },
+        "break",
+        {
+            "key": "OS       ",
+            "keyColor": "blue",
+            "type": "os"
+        },
+		{
+				"key": "Host     ",
+				"keyColor": "blue",
+				"type": "host"
+		},
+        //"bios",
+        //"bootmgr",
+        //"board",
+        //"chassis",
+        {
+            "key": "Kernel   ",
+            "keyColor": "blue",
+            "type": "kernel"
+        },
+        //"initsystem",
+        {
+            "key": "Uptime   ",
+            "keyColor": "cyan",
+            "type": "uptime"
+        },
+        //"loadavg",
+        //"processes",
+        {
+            "key": "Packages ",
+            "keyColor": "cyan",
+            "type": "packages"
+        },
+        {
+            "key": "Shell    ",
+            "keyColor": "yellow",
+            "type": "shell"
+        },
+        "editor",
+        //"display",
+        "brightness",
+        //"monitor",
+        //"lm",
+        {
+            "key": "DE       ",
+            "keyColor": "yellow",
+            "type": "de"
+        },
+        {
+            "key": "WM       ",
+            "keyColor": "yellow",
+            "type": "wm"
+        },
+        //"wmtheme",
+        //"theme",
+        //"icons",
+        //"font",
+        //"cursor",
+        //"wallpaper",
+        /*
+        {
+            "key": "Terminal     ",
+            "keyColor": "red",
+            "type": "terminal"
+        },
+        */
+        //"terminalfont",
+        //"terminalsize",
+        //"terminaltheme",
+        {
+            "key": "CPU      ",
+            "keyColor": "green",
+            "type": "cpu",
+            "format": "{1} @ {7} - {8}",
+            "temp": true
+            
+        },
+        //"cpucache",
+        //"cpuusage",
+        {
+            "key": "GPU      ",
+            "keyColor": "green",
+            "type": "gpu",
+            "format": "{1} {2:18} - {4}",
+            "temp": true
+        },
+        {
+            "key": "Memory   ",
+            "keyColor": "magenta",
+            "type": "memory"
+        },
+        "physicalmemory",
+        {
+            "key": "Swap     ",
+            "keyColor": "magenta",
+            "type": "swap"
+        },
+        {
+            "key": "Disk     ",
+            "keyColor": "white",
+            "type": "disk",
+            "format": "{13} {1}/{2} {?10}\u001b[90m{#1}({10}){#}{?}"
+            // if theres a mount name show it in gray
+            
+        },
+		{
+				"key":"Battery  ",
+				"keyColor": "white",
+				"type": "battery"
+		},
+        "poweradapter",
+        //"player",
+        //"media",
+        /*
+        {
+            "type": "publicip",
+            "timeout": 1000
+        },
+        */
+        /*
+        {
+            "type": "localip",
+            "showIpv6": true,
+            "showMac": true
+        },
+        */
+        //"dns",
+        "wifi",
+        //"datetime",
+        //"locale",
+        //"vulkan",
+        //"opengl",
+        //"opencl",
+        //"users",
+        "bluetooth",
+        "bluetoothradio",
+        //"sound",
+        //"camera",
+        //"gamepad",
+        /*
+        {
+            "type": "weather",
+            "timeout": 1000
+        },
+        */
+        //"netio",
+        //"diskio",
+        /*
+        {
+            "type": "physicaldisk",
+            "temp": true
+        },
+        */
+        //"version",
+        "break",
+        {
+            "type": "colors",
+            "paddingLeft": 0,
+            "symbol": "background",
+            "block": {
+                "width": 7
+            }
+        }
+    ]
+}
