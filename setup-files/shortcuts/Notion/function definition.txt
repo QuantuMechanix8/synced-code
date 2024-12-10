@@ -1,0 +1,1 @@
+f: X\rarr Y,\enspace f(x) = 

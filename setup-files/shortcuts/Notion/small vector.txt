@@ -1,0 +1,5 @@
+\left(\begin{smallmatrix}
+a\\
+b\\
+c
+\end{smallmatrix}\right)

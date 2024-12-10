@@ -1,0 +1,1 @@
+\begin{matrix*}[c] a \end{matrix*}

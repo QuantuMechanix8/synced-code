@@ -1,0 +1,1 @@
+\begin{bmatrix*}[c] a \end{bmatrix*}

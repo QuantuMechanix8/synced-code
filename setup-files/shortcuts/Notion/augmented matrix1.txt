@@ -1,0 +1,4 @@
+\begin{pmatrix}
+    1 & 0 &\bigm| & k \\
+    0 & 1 &\bigm| & k \\
+\end{pmatrix}

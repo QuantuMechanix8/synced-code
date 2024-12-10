@@ -1,0 +1,1 @@
+\begin{vmatrix*}[c] a \end{vmatrix*}
