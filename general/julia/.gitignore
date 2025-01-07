@@ -1,0 +1,2 @@
+# ignore fractal image files since they are large - and generated on-demand by respective scripts
+/fractals
