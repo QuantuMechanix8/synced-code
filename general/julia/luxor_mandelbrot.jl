@@ -1,8 +1,8 @@
 using Luxor
 
-p_width, p_height = 2000, 2000
-width, height = 2.5,2
-centre = (0, 0)
+p_width, p_height = 4000, 4000
+width, height = 2.5,2.25
+centre = (-0.30, 0)
 
 start_value = -0.23 + 0.74im
 
@@ -59,14 +59,14 @@ function draw_point(w,h, color=(0,0,0))
     line(p, p+unit, action=:stroke) # can't figure out how to change the colour of my point each time????
 end
 
-total_iter = 60
+total_iter = 75
 
 for w in 1:p_width
     for h in 1:p_height
         x,y = get_cartesian_coords(w,h)
         z = x + im*y
         #println(z, in_mandel(z))
-        iter = in_mandel(z,c=start_value, iterations=total_iter)
+        iter = in_mandel(z, iterations=total_iter)
         if iter == true && isa(iter, Bool) # otherwise always evaluates to true
             draw_point(w,h)
         else

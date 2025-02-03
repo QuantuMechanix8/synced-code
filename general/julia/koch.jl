@@ -52,7 +52,7 @@ p1 = Point(koch_width/2, 0)
 p2 = Point(0, triangle_height)
 p3 = Point(koch_width, triangle_height)
 
-n = 0:6
+n = 0:7
 for i in n
     Drawing(koch_width, koch_height, "fractals/koch/koch_snowflake_$(i).svg")
     background("white")

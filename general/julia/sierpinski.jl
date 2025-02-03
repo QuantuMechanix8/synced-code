@@ -29,7 +29,7 @@ p3 = Point(width, height)
 
 n = 0:8
 for i in n
-    Drawing(width, height, "fractals/sierpinski/sierpinski_$(i).svg")
+    Drawing(width, height, "fractals/sierpinski/sierpinski_$(i).png")
     background("white")
     sierpinski(p1, p2, p3, i)
     finish()

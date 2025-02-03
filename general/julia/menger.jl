@@ -47,7 +47,7 @@ initial_square = [p1,p2,p3,p4]
 
 n = 0:6
 for i in n
-    Drawing(width, width, "fractals/menger/menger_$(i).svg")
+    Drawing(width, width, "fractals/menger/menger_$(i).png")
     background("white")
     sethue("black")
     menger(initial_square, i)
