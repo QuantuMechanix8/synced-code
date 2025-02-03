@@ -1,17 +1,17 @@
 {
     "type": "phrase",
-    "description": "doublequotes",
+    "description": "angle brackets",
     "modes": [
         1
     ],
-    "usageCount": 14,
+    "usageCount": 0,
     "prompt": false,
     "omitTrigger": false,
     "matchCase": false,
     "showInTrayMenu": false,
     "abbreviation": {
         "abbreviations": [
-            "lrq~"
+            "lrang~"
         ],
         "backspace": true,
         "ignoreCase": true,
@@ -27,5 +27,5 @@
         "regex": null,
         "isRecursive": false
     },
-    "sendMode": "<ctrl>+v"
+    "sendMode": "kb"
 }

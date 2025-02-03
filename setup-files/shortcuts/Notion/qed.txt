@@ -1,1 +1,1 @@
-\blacksquare \enspace Q.E.D
+\quad \blacksquare \enspace Q.E.D
