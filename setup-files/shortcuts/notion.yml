@@ -1,0 +1,186 @@
+# KaTeX text-expansions (for espanso)
+# should be placed in/symlinked to ~/.config/espanso/notion.yml
+
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+
+matches:
+  # whitespace expansions
+  - trigger: "el~"
+    label: "empty line"
+    replace: '\enspace \\ %empty line'
+
+  - trigger: "en~"
+    replace: '\enspace '
+
+
+  # matrix expansions
+  - trigger: "mat~"
+    label: "matrix"
+    replace: |
+      \begin{matrix*}[c] 
+      a & b \\ 
+      c & d
+      \end{matrix*}
+
+  - trigger: "mats~"
+    label: "small matrix"
+    replace: |
+      \left[\begin{smallmatrix}
+      $|$1 & 0\\
+      0 & 1
+      \end{smallmatrix}\right]
+
+  - trigger: "matb~"
+    label: "square bracket matrix"
+    replace: |
+      \begin{bmatrix*}[c] 
+      a & b \\
+      c & d 
+      \end{bmatrix*}
+
+  - trigger: "matp~"
+    label: "parenthesis matrix"
+    replace: |
+      \begin{pmatrix*}[c]
+      a $|$ & b \\
+      c & d 
+      \end{pmatrix*}
+
+  - trigger: "matv~"
+    label: "vert matrix"
+    replace: |
+      \begin{vmatrix*}[c] 
+      a & b
+      c & d
+      \end{vmatrix*}
+
+  - trigger: "mata~"
+    label: "augmented matrix"
+    replace: |
+      \begin{pmatrix}
+      1 & 0 &\bigm| & k \\
+      0 & 1 &\bigm| & k \\
+      \end{pmatrix}
+
+
+  # vector expansions
+  - trigger: "vecs~"
+    label: "small vector"
+    replace: |
+      \left(\begin{smallmatrix}
+      a$|$\\
+      b\\
+      c
+      \end{smallmatrix}\right)
+
+  - trigger: "vec~"
+    label: "vector"
+    replace: |
+      \begin{pmatrix}
+      a$|$\\
+      b\\
+      c
+      \end{pmatrix}
+
+  - trigger: "vb~"
+    label: "bold vector"
+    replace: '\vec{\bold r$|$}'
+
+
+  # text font/style expansions
+  - trigger: "bb~"
+    replace: '\mathbb $|$'
+
+  - trigger: "mc~"
+    replace: '\mathcal{$|$}'
+
+
+  # regular text expansions
+  - trigger: "tt~"
+    label: "tiny text"
+    replace: '\tiny{\text{$|$}}'
+
+  - trigger: "tg~"
+    label: "text gray"
+    replace: '\gray{\text{ [$|$]}}'
+
+  - trigger: "title~"
+    replace: '\underline{\large{\text{$|$}}}'
+
+
+  # operator expansions
+  - trigger: "sum~"
+    replace: '\sum\limits_{}^{} $|$'
+
+  - trigger: "lim~"
+    replace: '\lim\limits_{}\, {$|$}'
+
+  - trigger: "prod~"
+    replace: '\prod\limits_{}^{} '
+
+  - trigger: "max~"
+    replace: '\max\limits_{}'
+
+  - trigger: "min~"
+    replace: '\min\limits_{}'
+
+  - trigger: "der~"
+    label: "derivative"
+    replace: '\displaystyle \frac{d}{dx}\, '
+
+  - trigger: "dy~"
+    replace: '\frac{dy}{dx}'
+
+  - trigger: "par~"
+    replace: '\frac{\partial f$|$}{\partial x}'
+
+  - trigger: "int~"
+    replace: '\displaystyle\int\limits_{}^{} {$|$\,dx}'
+
+
+  # symbol expansions
+  - trigger: "ih~"
+    label: "i hat"
+    replace: '{\hat\imath}'
+
+  - trigger: "jh~"
+    label: "j hat"
+    replace: '{\mathrlap{\;\hat{}}{\jmath}}'
+
+  - trigger: "kh~"
+    label: "k hat"
+    replace: '{\hat{k} }'
+
+  - trigger: "qed~"
+    replace: '\quad \blacksquare \enspace Q.E.D'
+
+  - trigger: "contradiction~"
+    replace: '\red{\Rarr\Larr \text{Contradiction!}}'
+
+  - trigger: "cvdots~"
+    label: "centered vdots"
+    replace: '\raisebox{0.5em}{$\vdots$}'
+
+  - trigger: "ni~"
+    label: "not implies"
+    replace: '{\implies}\mathllap{/\quad}'
+
+
+  # other?
+  - trigger: "lrq~"
+    label: "left & right quotes"
+    replace: "“$|$”"
+
+  - trigger: "lrang~"
+    label: "left & right angle bracket"
+    replace: '\lang $|$ \rang'
+
+  - trigger: "fr~"
+    replace: '\frac{$|$}{}'
+
+  - trigger: "=~"
+    label: "commented equals"
+    replace: '\stackrel{\tiny\text{$|$}}{=}'
+
+  - trigger: "fd~"
+    replace: 'f: X\rarr Y,\enspace f(x) = '

@@ -1,0 +1,38 @@
+be~, \bold{\large{}}
+der~, \displaystyle \frac{d}{dx}\, {}
+tg~, \gray{\text{ []}}
+ih~, {\hat\imath}
+jh~, {\mathrlap{\;\hat{}}{\jmath}}
+lim~, \lim\limits_{}\, {}
+ni~, {\implies}\mathllap{/\quad}
+mata~, <p>\begin{pmatrix}</p><p>    1 & 0 &\bigm| & k \\</p><p>    0 & 1 &\bigm| & k \\</p><p>\end{pmatrix}</p>
+cvdots~, \raisebox{0.5em}{$\vdots$}
+=~, \stackrel{\tiny\text{}}{=}
+contradiction~, \red{\Rarr\Larr \text{Contradiction!}}
+dy~, \frac{dy}{dx}
+el~, \enspace \\ %empty line
+en~, \enspace 
+fr~, \frac{}{}
+fd~, f: X\rarr Y,\enspace f(x) = 
+int~, \displaystyle\int\limits_{}^{} {\,dx}
+kh~, {\hat{k} }
+bbp~, \mathbb P
+mc~, \mathcal{}
+mat~, \begin{matrix*}[c] a \end{matrix*}
+par~, \frac{\partial f}{\partial x}
+prod~, \prod\limits_{}^{} {}
+qed~, \quad \blacksquare \enspace Q.E.D
+mats~, <p>\left[\begin{smallmatrix}</p><p>1 & 0\\</p><p>0 & 1</p><p>\end{smallmatrix}\right]</p>
+vecs~, <p>\left(\begin{smallmatrix}</p><p>a\\</p><p>b\\</p><p>c</p><p>\end{smallmatrix}\right)</p>
+matb~, \begin{bmatrix*}[c] a \end{bmatrix*}
+sum~, \sum\limits_{}^{} {}
+tt~, \tiny{\text{}}
+title~, \underline{\large{\text{}}}
+vb~, \vec{\bold r}
+vecp~, <p>\begin{pmatrix}</p><p>a\\</p><p>b\\</p><p>c</p><p>\end{pmatrix}</p>
+matv~, \begin{vmatrix*}[c] a \end{vmatrix*}
+lrang~, \lang \rang
+lrq~, “ ”
+max~, <p>\max\limits_{} </p><p></p>
+matp~, <p>\begin{pmatrix*}[c]</p><p>a & b \\</p><p>c & d </p><p>\end{pmatrix*}</p>
+min~, <p>\min\limits_{} </p><p></p>
