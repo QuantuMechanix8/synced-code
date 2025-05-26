@@ -11,7 +11,7 @@ set_theme!(my_theme)
 n = 20
 
 x = range(0, 10, n)
-y = [5-x/2 + 4*rand() for x in x]
+y = [4 * rand() for x in x]
 
 reg_line = fit(x, y, 1)
 
@@ -25,8 +25,18 @@ hlines!(ax, [y_mean], color = :lightblue, linestyle = :dash, label = L"$\bar{y}$
 
 # plot vertical lines between the data points and the regression line
 for i in 1:n
-	lines!(ax, [x[i], x[i]], [y[i], reg_line(x[i])], color = :lightskyblue, linestyle = :dot, linewidth = 1)
-	lines!(ax, [x[i], x[i]], [reg_line(x[i]), y_mean], color = :orange, linestyle = :dot)
+	pred = reg_line(x[i])
+	point_x, point_y = x[i], y[i]
+	point_between = (pred >= point_y && point_y >= y_mean) || (pred <= point_y && point_y <= y_mean)
+	same_side = sign(point_y - y_mean) == sign(pred - y_mean)
+	if !point_between
+		if !same_side
+			lines!(ax, [point_x, point_x], [y_mean, point_y], color = :lightskyblue, linestyle = :dot, linewidth = 1)
+		else
+			lines!(ax, [point_x, point_x], [pred, point_y], color = :lightskyblue, linestyle = :dot, linewidth = 1)
+		end
+	end
+	lines!(ax, [point_x, point_x], [pred, y_mean], color = :orange, linestyle = :dot)
 end
 
 # Create dummy plot objects for the legend

@@ -33,27 +33,27 @@ end
 
 
 function ascii_pixels(Rlower_bound, Rupper_bound, Rstep, Ilower_bound, Iupper_bound, Istep, c; iterations = 20)
-           for I in Iupper_bound:-Istep:Ilower_bound
-               for R in Rlower_bound:Rstep:Rupper_bound
-                   if I == 0 && R == 0
-                       print("O")
-                   elseif I == 0
-                       print("-")
-                   elseif R == 0
-                       print("|")
-                   else
-                       z = Complex(R, I)
-                       set_element = in_julia(z, c)
-                       if set_element
-                           print("#")
-                       elseif !set_element
-                           print(" ")
-                       end
-                   end
-               end
-               println()
-           end
-       end
+	for I in Iupper_bound:-Istep:Ilower_bound
+		for R in Rlower_bound:Rstep:Rupper_bound
+			if I == 0 && R == 0
+				print("O")
+			elseif I == 0
+				print("-")
+			elseif R == 0
+				print("|")
+			else
+				z = Complex(R, I)
+				set_element = in_julia(z, c)
+				if set_element
+					print("#")
+				elseif !set_element
+					print(" ")
+				end
+			end
+		end
+		println()
+	end
+end
 
 c = parse(Complex{Float16}, input("value of c:"))
 
