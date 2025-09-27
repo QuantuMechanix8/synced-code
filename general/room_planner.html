@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Unified Room Planner</title>
+<style>
+  body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:12px;background:#f6f7fb}
+  h1{font-size:16px;margin:0 0 8px}
+  #app{display:flex;gap:12px}
+  #pane{width:340px;overflow-y:auto;max-height:90vh}
+  #canvasWrap{background:#fff;border:1px solid #ccc;padding:10px}
+  #room{position:relative;background:#eef2fb;border:2px solid #9aaedc;}
+  .block{position:absolute;border:2px dashed #444;background:rgba(70,130,180,0.08);
+    cursor:grab;display:flex;align-items:center;justify-content:center;text-align:center;
+    box-sizing:border-box;font-size:12px;color:#111}
+  .block.locked{cursor:not-allowed;border-style:solid;background:rgba(150,150,150,0.1);}
+  .controls{background:#fff;padding:8px;border:1px solid #ddd;border-radius:6px;margin-bottom:8px}
+  .controls h2{font-size:14px;margin:4px 0}
+  input[type=number]{width:60px}
+  label{font-size:12px;margin-right:6px}
+  button{margin-top:4px;margin-bottom:4px}
+</style>
+</head>
+<body>
+<h1>Interactive Room Planner — Unified Blocks</h1>
+<div id="app">
+  <div id="pane">
+    <div class="controls">
+      <div>Room dimensions (cm)</div>
+      W: <input id="roomW" type="number" value="420"> × H: <input id="roomH" type="number" value="220"><br>
+      Scale: <input id="scale" type="number" value="2" step="0.1"> px/cm<br>
+      <button id="applyRoom">Apply</button>
+    </div>
+
+    <div class="controls">
+      <h2>Blocks</h2>
+      <div id="blocksPanel"></div>
+      <button id="addBlock">+ Add Block</button>
+    </div>
+
+    <div class="controls">
+      <button id="export">Export PNG</button>
+    </div>
+  </div>
+
+  <div id="canvasWrap">
+    <div id="room"></div>
+  </div>
+</div>
+
+<script>
+let state={
+  roomW:420,roomH:220,scale:2,
+  blocks:[
+    {id:"bed",label:"Bed",w:92,h:193,x:10,y:10,movable:true},
+    {id:"desk",label:"Desk",w:200,h:60,x:120,y:10,movable:true},
+    {id:"ward",label:"Wardrobe",w:90,h:97,x:300,y:10,movable:true},
+    {id:"shoe",label:"Shoe Rack",w:70,h:26,x:10,y:210,movable:true},
+    {id:"pillar",label:"Pillar",w:40,h:80,x:0,y:140,movable:false},
+    {id:"door",label:"Door",w:80,h:5,x:340,y:80,movable:false},
+    {id:"window",label:"Window",w:140,h:5,x:140,y:0,movable:false},
+    {id:"shelves",label:"Shelves",w:60,h:10,x:0,y:0,movable:false},
+    {id:"mirror",label:"Mirror",w:50,h:10,x:370,y:210,movable:false}
+  ]
+};
+
+const roomEl=document.getElementById('room');
+function px(n){return Math.round(n*state.scale)}
+function cm(n){return Math.round(n/state.scale)}
+
+function applyRoom(){
+  state.roomW=Number(document.getElementById('roomW').value);
+  state.roomH=Number(document.getElementById('roomH').value);
+  state.scale=Number(document.getElementById('scale').value);
+  roomEl.style.width=px(state.roomW)+'px';
+  roomEl.style.height=px(state.roomH)+'px';
+  render();
+}
+document.getElementById('applyRoom').addEventListener('click',applyRoom);
+
+function render(){
+  roomEl.innerHTML="";
+  state.blocks.forEach(b=>{
+    const el=document.createElement('div');
+    el.className="block"+(b.movable?"":" locked");
+    el.style.width=px(b.w)+"px";
+    el.style.height=px(b.h)+"px";
+    el.style.left=px(b.x)+"px";
+    el.style.top=px(b.y)+"px";
+    el.textContent=b.label;
+    el.dataset.id=b.id;
+    roomEl.appendChild(el);
+  });
+  updatePanel();
+}
+
+function updatePanel(){
+  const panel=document.getElementById('blocksPanel');
+  panel.innerHTML="";
+  state.blocks.forEach(b=>{
+    const div=document.createElement('div');
+    div.innerHTML=`
+      <b>${b.label}</b><br>
+      W:<input type="number" data-f="w" data-id="${b.id}" value="${b.w}">
+      H:<input type="number" data-f="h" data-id="${b.id}" value="${b.h}">
+      X:<input type="number" data-f="x" data-id="${b.id}" value="${b.x}">
+      Y:<input type="number" data-f="y" data-id="${b.id}" value="${b.y}">
+      <label><input type="checkbox" data-f="movable" data-id="${b.id}" ${b.movable?"checked":""}>Movable</label>
+      <button data-del="${b.id}">✕</button>
+      <hr>`;
+    panel.appendChild(div);
+  });
+  panel.querySelectorAll("input").forEach(inp=>{
+    inp.addEventListener("input",()=>{
+      const id=inp.dataset.id; const f=inp.dataset.f;
+      const block=state.blocks.find(x=>x.id===id);
+      if(f==="movable") block.movable=inp.checked;
+      else block[f]=Number(inp.value);
+      render();
+    });
+  });
+  panel.querySelectorAll("button[data-del]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const id=btn.dataset.del;
+      state.blocks=state.blocks.filter(x=>x.id!==id);
+      render();
+    });
+  });
+}
+
+document.getElementById("addBlock").addEventListener("click",()=>{
+  const id="b"+Math.random().toString(36).substr(2,5);
+  state.blocks.push({id,label:"Block",w:50,h:50,x:20,y:20,movable:true});
+  render();
+});
+
+// dragging
+let drag=null;
+roomEl.addEventListener("pointerdown",e=>{
+  const el=e.target.closest(".block"); if(!el) return;
+  const b=state.blocks.find(x=>x.id===el.dataset.id);
+  if(!b.movable) return;
+  drag={id:b.id,ox:e.clientX,oy:e.clientY,ex:b.x,ey:b.y};
+  el.setPointerCapture(e.pointerId); el.style.cursor="grabbing";
+});
+roomEl.addEventListener("pointermove",e=>{
+  if(!drag) return;
+  const b=state.blocks.find(x=>x.id===drag.id);
+  let nx=drag.ex+cm(e.clientX-drag.ox), ny=drag.ey+cm(e.clientY-drag.oy);
+  nx=Math.max(0,Math.min(nx,state.roomW-b.w));
+  ny=Math.max(0,Math.min(ny,state.roomH-b.h));
+  b.x=nx; b.y=ny; render();
+});
+roomEl.addEventListener("pointerup",()=>{drag=null;});
+
+// export
+document.getElementById("export").addEventListener("click",()=>{
+  const w=px(state.roomW), h=px(state.roomH);
+  const canvas=document.createElement("canvas"); canvas.width=w; canvas.height=h;
+  const ctx=canvas.getContext("2d"); ctx.fillStyle="#eef2fb"; ctx.fillRect(0,0,w,h);
+  state.blocks.forEach(b=>{
+    ctx.strokeStyle="#444"; ctx.lineWidth=2; ctx.setLineDash(b.movable?[6,4]:[]);
+    ctx.strokeRect(px(b.x),px(b.y),px(b.w),px(b.h));
+    ctx.fillStyle='rgba(70,130,180,0.06)';
+    ctx.fillRect(px(b.x),px(b.y),px(b.w),px(b.h));
+    ctx.font="12px sans-serif"; ctx.fillStyle="#111";
+    ctx.fillText(b.label+" ("+b.w+"×"+b.h+")",px(b.x)+4,px(b.y)+14);
+  });
+  const data=canvas.toDataURL("image/png");
+  const a=document.createElement("a"); a.href=data; a.download="room-layout.png"; a.click();
+});
+
+applyRoom();
+</script>
+</body>
+</html>
